@@ -4,7 +4,7 @@ import no.fd.robotics.lejos.motor.MotorThread;
 import no.fd.robotics.lejos.motor.MotorThread.MotorRequest;
 import no.fd.robotics.lejos.sensor.IRSensorThread;
 
-public class FindIRSource implements Runnable {
+public class IRMapper implements Runnable {
 
 	private MotorThread motorThread = null;
 	private IRSensorThread irSensorThread;
@@ -12,7 +12,7 @@ public class FindIRSource implements Runnable {
 	private boolean isFinished = false;
 	
 	
-	public FindIRSource(MotorThread motorThread, IRSensorThread irSensorThread) {
+	public IRMapper(MotorThread motorThread, IRSensorThread irSensorThread) {
 		this.motorThread = motorThread;
 		this.irSensorThread = irSensorThread;
 	}
