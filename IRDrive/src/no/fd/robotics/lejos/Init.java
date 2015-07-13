@@ -14,13 +14,15 @@ public class Init {
 	public static void main(String[] args) throws IOException, InterruptedException {	
 		IRSensorThread irSensorThread = new IRSensorThread(SensorPort.S4, 0);
 		MotorThread motorThread = new MotorThread(MotorPort.B, MotorPort.C);
-		IRMapper brainThread = new IRMapper(irSensorThread, motorThread);
+		IRMapper brainThread = new IRMapper(motorThread, irSensorThread);
 		Thread brainWorker = new Thread(brainThread);
 		Thread motorWorker = new Thread(motorThread);
+		Thread irWorker = new Thread(irSensorThread);		
+		irWorker.start();
 		motorWorker.start();
 		brainWorker.start();		
 		while (true) {
-			Thread.sleep(10);
+			Thread.sleep(500);
 		}
 	}
 

@@ -13,8 +13,8 @@ public class MotorThread implements Runnable {
 	private boolean isRunning = true;
 
 	private static final int ROTATE_SLOW = 200;
-	private static final int ROTATE_MEDIUM = 500;
-	private static final int ROTATE_FAST = 800;
+	private static final int ROTATE_MEDIUM = 900;
+	private static final int ROTATE_FAST = 1300;
 
 	private volatile MotorRequest currentRequest = MotorRequest.STOP;
 
@@ -73,7 +73,7 @@ public class MotorThread implements Runnable {
 				System.out.println("New: " + currentRequest);
 			}
 			try {
-				Thread.sleep(10);
+				Thread.sleep(20);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
